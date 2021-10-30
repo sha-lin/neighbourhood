@@ -6,7 +6,7 @@ from .models import Profile
 
 class ProfileTestClass(TestCase):
     def setUp(self):
-        self.new_profile = Profile(user='tom',
+        self.new_profile = Profile(user='dollah',
                                    bio='i love coding',
                                    profile_photo='image.png')
 
