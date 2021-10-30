@@ -1,0 +1,44 @@
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+{% load cloudinary %}
+
+
+{% block content %}
+<div class="container pb-5">
+    <div class="row pt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="content-section">
+                <div class="media">
+                    {%if user.profile.image%}
+                    <img src="{{user.profile.image.url}}" alt="" class="img-fluid rounded-circle nav-item"
+                        style="height:150px;width:150px">
+                    {%else%}
+                    <img src="/static/images/account_circle_black_24dp.svg" alt="" class="img-fluid rounded-circle nav-item"
+                    style="height:150px;width:150px">
+                    {%endif%}
+                    <div class="media-body pl-5 mt-3">
+                        <h2>{{user.username}}</h2>
+                        <p>{{user.email}}</p>
+                        <p>{{user.profile.bio}}</p>
+                        <p>{{ neighborhood.location}}</p>
+                    </div>
+                </div>
+                <form method="POST" enctype="multipart/form-data" class="pt-5">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4 text-center">Profile Info </legend>
+                        {{u_form|crispy}}
+                        {{p_form|crispy}}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+{% endblock %}
