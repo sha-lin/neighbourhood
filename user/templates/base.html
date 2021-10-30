@@ -1,0 +1,42 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+{%block style%}
+{%bootstrap_css%}
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{%static 'css/base.css'%}">
+{%endblock%}
+<body>
+    {%include 'navbar.html'%}
+    <div class="container pt-5">
+        <div class="row pt-5">
+            <div class="col-md-3 pt-5"></div>
+            <div class="col-md-6 pt-5">
+                {%if messages%}
+                {%for message in messages%}
+                <div class="alert alert-{{message.tags}}">
+                    {{message}}
+                
+                </div>
+                {%endfor%}
+                {%endif%}
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    {%block content%}
+    {%endblock%}
+
+ {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+</html>
