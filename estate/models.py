@@ -20,7 +20,7 @@ class Neighborhood(models.Model):
 
     @classmethod
     def update_neighborhood(cls,id,new_name):
-        cls.objects.filter(id=id).update(hood_name = newname)
+        cls.objects.filter(id=id).update(hood_name = 'newname')
    
     @classmethod
     def update_family_count(cls,id,new_occupant):
