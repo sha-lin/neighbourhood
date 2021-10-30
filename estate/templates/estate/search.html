@@ -1,0 +1,34 @@
+{% extends 'estate/base.html' %}
+
+{% block content %}
+<div class="container pt-5 mt-5">
+
+    <div class="row pt-5 ">
+        {% if businesses %}
+        <h2>Found {{ businesses |length }} of searched term {{message}}</h2>
+        {% else %}
+        <h2> Found 0 businesses for the search term {{message}}</h2>
+        {% endif %}
+
+    </div>
+
+    <div class="row pt-5">
+
+        {% if businesses %}
+            {% for business in businesses %}
+                <div class="col-sm-6 col-md-4 p-3">
+                    <div class="card">
+                        <img src="{{business.business_image.url}}" alt="{{business.name}}" class="img-fluid" > 
+                        <div class="card-body">
+                            <p class="card-text">{{business.name}}</p>
+                            <p class="card-text">{{business.location}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

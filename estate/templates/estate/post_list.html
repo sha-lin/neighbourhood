@@ -1,0 +1,29 @@
+{% extends 'estate/base.html' %}
+
+{% block content %}
+<div class="container pb-5 mb-5 pt-5">
+    <div class="pt-5">
+        <a href="{% url 'post-create' %}" class="btn btn-info btn-sm">Create-Post</a>
+    </div>
+    {% for post in posts%}
+        <div class="row p-5">
+            <div class="col-md-3"></div>
+            <div class="col-m-6">
+                <div class="card" style="width:30rem;">
+                    <div class="card-header d-flex">
+                        <img src="{{post.author.profile.image.url}}" alt="" class="img-fluid rounded-circle" style="height: 80px;width:80px;">
+                        <a href="{% url 'post-detail' post.id %}"><p class="pl-3 mt-3">{{post.author}}</p></a>
+                    </div>
+                    <div class="content d-flex justify-content-center align-items-center">
+                        <div class="card-body">
+                            <p class="card-text">{{post.post}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

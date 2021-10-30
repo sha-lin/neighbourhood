@@ -1,0 +1,31 @@
+{% extends 'estate/base.html' %}
+
+{% block content %}
+<div class="container pt-5 mt-5 mb-5">
+    <div class="row p-5 mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-m-6 mt-5">
+            <div class="card" style="width:30rem;">
+                <div class="card-header d-flex">
+                    <img src="{{object.author.profile.image.url}}" alt="" class="img-fluid rounded-circle"
+                        style="height: 80px;width:80px;">
+                    <p class="pl-3 mt-3">{{object.author}}</p>
+                </div>
+                <div class="content d-flex justify-content-center align-items-center">
+                    <div class="card-body">
+                        <p class="card-text">{{object.post}}</p>
+                        <p class="cardd-text">{{date_posted|date}}</p>
+                        {% if object.author == user %}
+                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id%}">Update</a>
+                            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+ 
+</div>
+
+{% endblock %}

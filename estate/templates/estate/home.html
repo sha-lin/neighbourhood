@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+  <div class="landing-page d-flex justify-content-center align-items-center text-center" style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0, 0, 0, 0.7)),url(https://images.unsplash.com/photo-1592847649561-27bb3b8b6db8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);height:100vh;background-size:cover;background-position:center;background-repeat:no-repeat;">
+    <div class="content-info text-white">
+      <h1>Welcome To Neighborhood Watch</h1>
+      <h4 style="font-size: larger;">Where we value your stay and keep you updated</h4>
+    </div>
+  </div>
+  <div class="container pb-5 mb-5">
+    <div class="about text-center pt-5 mt-5">
+      <h2>About Neighborhood Watch</h2>
+      <p class="pt-3">Neighborhood Watch is a group of neighborhood united with the values of being your brother's keeper and always keep them updated on any upcommings within the neighborhood.In hood we also keep you updated on businesses around you,we also make the helplines such as ambulance,firefighters,police within your reach.We value your feedback on any upcomings or state of service offered by businesses around your neighborhood</p>
+    </div>
+    <h2 class="text-center pt-5 mb-5">Businesses within  Neighborhood Watch</h2>
+    <div class="row">
+      {% for business in businesses  %}
+          <div class="col-md-4 p-3">
+            <div class="card">
+              <img src="{{business.business_image.url}}" alt="" class="img-fluid">
+              <div class="card-body">
+                <a href="{% url 'business-detail' business.pk %}"><p class="card-text">{{business.name}}</p></a>
+                <p class="card-text">{{business.location}}</p>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+    <div class="div">
+      <h3 class="pt-5 mt-5 text-center">Emergency Response Calls</h3>
+      <p>Incase of emergencies these are the helplines </p>
+    </div>
+    <div class="row pt-3">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://unsplash.com/photos/IFMhRKSxZB8/download?force=true&w=640" class="img-fluid card-img-top" alt="ambulance" style="height: 300px;">
+          <div class="card-body">
+            <p>Police</p>
+            <p class="card-text">02012368343</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://unsplash.com/photos/LF51dxC0AoU/download?force=true&w=640" class="img-fluid card-img-top"
+            alt="police" style="height: 300px;">
+          <div class="card-body">
+            <p>FireFighters</p>
+            <p class="card-text">02074968343</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://unsplash.com/photos/wOiCLxyavTo/download?force=true&w=640" class="img-fluid card-img-top"
+            alt="police" style="height: 300px;">
+          <div class="card-body">
+            <p>Ambulance</p>
+            <p class="card-text">02074668343</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %} 
