@@ -1,3 +1,4 @@
+from django import forms
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,HttpResponseRedirect,Http404,JsonResponse
 import datetime as dt
@@ -30,8 +31,8 @@ class BusinessUpdateView(LoginRequiredMixin,UpdateView,UserPassesTestMixin):
     fields = ['name','email','business_image','location']
 
     def form_valid(self):
-        form.instance.business_owner =self.request.user
-        return super().form_valid(form)
+        forms.instance.business_owner =self.request.user
+        return super().form_valid()
 
     def test_func(self):
         business = self.get_object()
@@ -104,8 +105,8 @@ def search_request(request):
     if 'query' in request.POST and request.GET['query']: 
         search = request.GET.get('query')
         search_business= Business.search_by_title(search)
-        messages= f'{search_item}'
-        context = {"message":messages,"businesses":search_businesses}
+        messages= f'{search}'
+        context = {"message":messages,"businesses":search_business}
         
         return render(request,'estate/search.html',context)
 
