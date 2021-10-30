@@ -6,7 +6,7 @@ from .models import Neighborhood,Business
    
 class NeighbourhoodTestClass(TestCase):
     def setUp(self):
-        self.new_neighbourhood = Neighborhood('karen','Nairobi',56)
+        self.new_neighbourhood = Neighborhood('Utawala','Nairobi',56)
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_neighbourhood, Neighborhood))
@@ -14,8 +14,8 @@ class NeighbourhoodTestClass(TestCase):
     def test_update_neighborhood(self):
         self.new_neighborhood.save_hood()
         neighborhood_id = self.new_neighbourhood.id
-        Neighborhood.update_hood(id, "mombasa")
-        self.assertEqual(self.neighborhood.neighborhood,"mombasa")
+        Neighborhood.update_hood(id, "Narok")
+        self.assertEqual(self.neighborhood.neighborhood,"narok")
 
     def test_delete_neighborhood(self):
         self.new_neighbourhood.save_hood()
@@ -25,7 +25,7 @@ class NeighbourhoodTestClass(TestCase):
 
 class BusinessTestClass(TestCase):
     def setUp(self):
-        self.new_business = Business(biz_name ='Zaimet',biz_email = 'zaimet@food.com', biz_description='Eat good Live good', biz_digits='0791122323')
+        self.new_business = Business(biz_name ='CampAbilities',biz_email = 'cabilities@gmail.com', biz_description='Eat good Live good', biz_digits='0791122323')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_business, Business))
@@ -33,8 +33,8 @@ class BusinessTestClass(TestCase):
     def test_update_business(self):
         self.new_business.save_business()
         business_id = self.new_business.id
-        Business.update_business(id, "ZaimetKiller")
-        self.assertEqual(self.business.business, "ZaimetKiller")
+        Business.update_business(id, "CAbilities")
+        self.assertEqual(self.business.business, "CAbilities")
 
     def test_delete_business(self):
         self.business.save_business()
