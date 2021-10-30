@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top"  style="background-color:#60695C;">
+    <a class="navbar-brand pl-5 mt-3" href="{% url 'home' %}">Neighborhood Watch</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item pr-5 mt-3">
+                <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Businesses"
+                        aria-label="Search" name="query">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </li>
+            <li class="nav-item active pr-5 mt-3">
+                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item pr-5 mt-3">
+                <a class="nav-link" href="{% url 'business-create' %}">Create Business Post</a>
+            </li>
+            <li class="nav-item pr-5 mt-3">
+                <a class="nav-link" href="{% url 'post' %}">Neighborhood Forum</a>
+            </li>
+            <li class="nav-item dropdown pr-5">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {%if user.profile.image%}
+                    <img src="{{user.profile.image.url}}" alt="" class="img-fluid rounded-circle nav-item"
+                        style="height:50px;width:50px">
+                    {%else%}
+                    <img src="/static/images/account_circle_white_24dp.svg" alt="" class="img-fluid rounded-circle nav-item"
+                    style="height:50px;width:50px">
+                    {%endif%}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    {% if user.is_authenticated %}
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                    {% else %}
+                    <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                    <a class="dropdown-item" href="{% url 'register' %}">register</a>
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--  
+    <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Neighborhood Watch</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-dark" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'profile'%}">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{%url 'business-create'%}">Create Business Post</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{%url 'logout'%}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'login'%}">Login</a>
+          </li>
+          {% endif %}        
+      </ul>
+      <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Projects" aria-label="Search" name="project">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+</div>
+</nav><br><br> -->
