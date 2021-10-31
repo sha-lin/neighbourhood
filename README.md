@@ -53,6 +53,6 @@ E_MAIL -ronoshalin@gmail.com
 
 Project Link: [https://github.com/sha-lin/neighbourhood](https://github.com/sha-lin/neighbourhood)
 ## License
-https://github.com/sha-lin/awwards/blob/master/LICENSE
+https://github.com/sha-lin/neighbourhood/blob/master/LICENSE
 # **Copyright**
 Copyright (c) {2021} **SHALIN RONO**
